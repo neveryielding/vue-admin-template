@@ -20,6 +20,7 @@
 **style**	 重写之前项目的大部分样式，具体风格参考Ant Design，修改了element-ui.scss部分组件样式，theme-black.css 自定义的主题样式，list-page-scss 根据项目需要编写的列表页面通用样式；<br/><br/>
     **欢迎大家给star，提issues，我每天会抽出一定的业余时间来更新项目，解决问题。**<br/>
     **目前还有很多模块待继续优化，后续部分会继续完善..................................**<br/>
+    **联系方式： neveryielding@yeah.net **<br/>
 ### 项目截图
 ![enter image description here](http://chuantu.biz/t6/338/1530719430x-1404817706.png)
 ![enter image description here](http://chuantu.biz/t6/338/1530719456x-1404817706.png)
