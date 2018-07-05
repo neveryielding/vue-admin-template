@@ -7,7 +7,6 @@
 ### 支持环境
 -   现代浏览器和 IE9 及以上（需要  [polyfills](https://ant.design/docs/react/getting-started-cn#%E5%85%BC%E5%AE%B9%E6%80%A7)）。
 -   支持服务端渲染。
--   [Electron](http://electron.atom.io/)
 ###  其他内容
 -  [在线访问](http://www.stars21.cn/) <br/>
 **component** 目录下编写了自己平时在项目中常用的几个组件 <br/>
