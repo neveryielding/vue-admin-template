@@ -115,7 +115,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        deleteId('/admin/api/sysUser', row.id).then(() => {
+        deleteId('user/delete', row.id).then(() => {
           this.$message({ type: 'success', message: '删除成功!' })
           this.fetchData()
         }).catch(() => {

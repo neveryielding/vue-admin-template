@@ -60,7 +60,7 @@ export const asyncRouterMap = [
       icon: 'example'
     },
     children: [
-      { path: 'user', component: _import('example/user/index'), name: 'user', meta: { title: 'user' }}
+      { path: 'user', component: _import('sample/user/index'), name: 'user', meta: { title: 'user' }}
     ]
   },
   // {

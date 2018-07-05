@@ -1,6 +1,6 @@
 import addModel from '@/public/addModel.js'
 import rules from '@/public/rules.js'
-import { checkIsExist, curd, fetchInfo } from '@/api/index.js'
+import { checkIsExist, curd, fetch } from '@/api/index.js'
 export default {
   mixins: [addModel, rules],
   data() {
@@ -43,7 +43,7 @@ export default {
             return callback()
           }
           const params = { username: value }
-          checkIsExist('/admin/sysUser/exist', params).then(({ data }) => {
+          checkIsExist('user/exist', params).then(({ data }) => {
             if (data) {
               callback(new Error('已存在,请勿重复添加'))
             } else {
@@ -77,7 +77,7 @@ export default {
     loadInfo() {
       const { obj } = this.data
       this.mloading.show()
-      fetchInfo('/admin/api/sysUser/edit', obj.id).then(({ data }) => {
+      fetch('user/editInfo', { id: obj.id }).then(({ data }) => {
         this.form = {
           id: data.id,
           name: data.name,
@@ -101,14 +101,13 @@ export default {
             return
           }
           this.$setKeyValue(this.button, { loading: true, text: '提交中..' })
-          const requestForm = this.$copy(this.form)
-          delete requestForm.confirmPassword
-          const url = '/admin/api/sysUser'
+          let request = this.$copy(this.form)
+          delete request.confirmPassword
           if (this.data.type === 'add') {
-            delete requestForm.id
-            curd(url, 'post', requestForm).then(() => this.success()).catch(() => this.error())
+            delete request.id
+            curd('user/add', 'post', request).then(() => this.success()).catch(() => this.error())
           } else {
-            curd(url, 'put', requestForm).then(() => this.success()).catch(() => this.error())
+            curd('user/update', 'put', request).then(() => this.success()).catch(() => this.error())
           }
         }
       })

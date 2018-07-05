@@ -24,7 +24,7 @@ for (let i = 0; i < count; i++) {
 }
 export default {
   getList: config => {
-    const { importance, type, title, page = 1, limit = 20, sort } = param2Obj(config.url)
+    const { importance, type, title, page = 1, size = 10, sort } = param2Obj(config.url)
     let mockList = List.filter(item => {
       if (importance && item.importance !== +importance) return false
       if (type && item.type !== type) return false
@@ -34,10 +34,38 @@ export default {
     if (sort === '-id') {
       mockList = mockList.reverse()
     }
-    const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
+    const pageList = mockList.filter((item, index) => index < size * page && index >= size * (page - 1))
     return {
       total: mockList.length,
       items: pageList
     }
+  },
+  editInfo: config => {
+    return {
+      id: '219839018301',
+      username: 'admin',
+      name: 'super',
+      groupId: 1,
+      groupName: '管理组',
+      state: 1
+    }
+  },
+  add: config => {
+    const { body } = config
+    console.log(body)
+    return body
+  },
+  update: config => {
+    return true
+  },
+  delete: config => {
+    return true
+  },
+  exist: config => {
+    const { username } = param2Obj(config.url)
+    const item = List.filter(item => {
+      return item.name === username
+    })
+    return item.length > 0
   }
 }
